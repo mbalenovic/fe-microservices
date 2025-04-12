@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import jwt, { JwtPayload } from "jsonwebtoken";
+import { AuthRequest } from "./src/types/express";
 
 const app = express();
 const PORT = 4000;
@@ -9,7 +10,7 @@ const SECRET = "supersecret";
 
 // Authorization middleware
 const authorize = (
-  req: express.Request,
+  req: AuthRequest,
   res: express.Response,
   next: express.NextFunction
 ) => {
@@ -19,8 +20,8 @@ const authorize = (
   }
 
   try {
-    const user = jwt.verify(token, SECRET);
-    req.user = user as JwtPayload;
+    const user = jwt.verify(token, SECRET) as JwtPayload;
+    req.user = user;
     next();
   } catch {
     res.status(401).json({ error: "Unauthorized" });
@@ -53,7 +54,7 @@ app.post("/login", (req, res) => {
   res.json({ success: true });
 });
 
-app.get("/me", authorize, (req, res) => {
+app.get("/me", authorize, (req: AuthRequest, res) => {
   res.json(req.user);
 });
 
