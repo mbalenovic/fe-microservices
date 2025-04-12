@@ -37,7 +37,7 @@ app.get("/me", (req, res) => {
   const token = req.cookies.token;
   try {
     const user = jwt.verify(token, SECRET);
-    res.json({ user });
+    res.json(user);
   } catch {
     res.status(401).json({ error: "Unauthorized" });
   }
