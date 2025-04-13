@@ -1,4 +1,5 @@
 declare module "microReact/Dashboard" {
-  const Dashboard: React.ComponentType;
+  import { FC } from "react";
+  const Dashboard: FC;
   export default Dashboard;
 }
