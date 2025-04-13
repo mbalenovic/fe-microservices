@@ -9,7 +9,11 @@ function DashboardContent() {
   return (
     <div>
       <h2>Dashboard (React Micro Frontend)</h2>
-      {user ? <p>Welcome, {user.username}</p> : <p>Please log in.</p>}
+      {user ? (
+        <p>Hello, {user.username}! Welcome to the Micro React</p>
+      ) : (
+        <p>Please log in.</p>
+      )}
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     federation({
       name: "microReact",
-      filename: "remoteEntry.js",
+      filename: "microReact.js",
       exposes: {
         "./Dashboard": "./src/routes/Dashboard/Dashboard.tsx",
       },
