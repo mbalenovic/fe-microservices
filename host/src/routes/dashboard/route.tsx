@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
-import Dashboard from "microReact/Dashboard";
+import ReactApp from "microReact/Dashboard";
+import SolidApp from "@/features/dashboard/components/SolidApp";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
@@ -8,8 +9,11 @@ export const Route = createFileRoute("/dashboard")({
 
 function RouteComponent() {
   return (
-    <Suspense fallback={<div>Loading React Micro Frontend...</div>}>
-      <Dashboard />
-    </Suspense>
+    <>
+      <Suspense fallback={<div>Loading React Micro Frontend...</div>}>
+        <ReactApp />
+      </Suspense>
+      <SolidApp />
+    </>
   );
 }

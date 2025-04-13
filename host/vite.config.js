@@ -12,6 +12,7 @@ export default defineConfig({
     federation({
       remotes: {
         microReact: "http://localhost:3001/dist/assets/remoteEntry.js",
+        microSolid: "http://localhost:3002/dist/assets/microSolid.js",
       },
       shared: ["react", "react-dom", "@tanstack/react-query"],
     }),

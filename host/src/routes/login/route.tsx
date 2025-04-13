@@ -1,7 +1,7 @@
-import { useLoginMutation } from "@/features/mutationts/useLoginMutation";
+import { useLoginMutation } from "@/features/login/mutations/useLoginMutation";
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { useUserQuery } from "@/features/queries/useUserQuery";
+import { useEffect, useState } from "react";
+import { useUserQuery } from "@/features/dashboard/queries/useUserQuery";
 import { useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/login")({
@@ -15,9 +15,11 @@ function RouteComponent() {
 
   const { data: user } = useUserQuery();
 
-  if (user?.username) {
-    navigate({ to: "/dashboard" });
-  }
+  useEffect(() => {
+    if (user?.username) {
+      navigate({ to: "/dashboard" });
+    }
+  }, [user?.username, navigate]);
 
   return (
     <div style={{ padding: 20 }}>

@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { useUserQuery } from "@/features/queries/useUserQuery";
+import { useUserQuery } from "@/features/dashboard/queries/useUserQuery";
 import { useEffect } from "react";
 
 export const Route = createRootRoute({
@@ -18,6 +18,7 @@ function RootComponent() {
   const location = useLocation();
   const { data: user } = useUserQuery();
 
+  // Redirect to login if user is not authenticated
   useEffect(() => {
     // Allow access to landing page and login page
     if (!user?.username && !["/", "/login"].includes(location.pathname)) {

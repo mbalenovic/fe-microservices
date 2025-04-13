@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useUserQuery } from "@/features/queries/useUserQuery";
+import { useUserQuery } from "@/features/dashboard/queries/useUserQuery";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
