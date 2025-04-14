@@ -24,12 +24,14 @@ function RouteComponent() {
   return (
     <div style={{ padding: 20 }}>
       <h1>Host App</h1>
-      <input
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <button onClick={() => login.mutate(username)}>Login</button>
+      <form onSubmit={() => login.mutate(username)}>
+        <input
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+        />
+        <button type="submit">Login</button>
+      </form>
       <hr />
     </div>
   );
