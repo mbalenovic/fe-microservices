@@ -3,12 +3,14 @@ import viteReact from "@vitejs/plugin-react";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import { resolve } from "node:path";
 import federation from "@originjs/vite-plugin-federation";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     TanStackRouterVite({ autoCodeSplitting: true }),
     viteReact(),
+    tailwindcss(),
     federation({
       remotes: {
         microReact: "http://localhost:3001/dist/assets/remoteEntry.js",

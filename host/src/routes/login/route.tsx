@@ -22,7 +22,7 @@ function RouteComponent() {
   }, [user?.username, navigate]);
 
   return (
-    <div style={{ padding: 20 }}>
+    <div>
       <h1>Host App</h1>
       <form onSubmit={() => login.mutate(username)}>
         <input
@@ -30,9 +30,9 @@ function RouteComponent() {
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
         />
+
         <button type="submit">Login</button>
       </form>
-      <hr />
     </div>
   );
 }
