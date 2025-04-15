@@ -3,9 +3,20 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { AuthRequest } from "./src/types/express";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:3000",
+    credentials: true,
+  },
+});
+
 const PORT = 4000;
+const SOCKET_PORT = 4001;
 const SECRET = "supersecret";
 
 // Authorization middleware
@@ -58,6 +69,16 @@ app.get("/me", authorize, (req: AuthRequest, res) => {
   res.json(req.user);
 });
 
-app.listen(PORT, () =>
+io.on("connection", (socket) => {
+  console.log("Client connected");
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+});
+
+io.listen(SOCKET_PORT);
+
+httpServer.listen(PORT, () =>
   console.log(`Backend running at http://localhost:${PORT}`)
 );
