@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Dashboard from "./routes/Dashboard/Dashboard.tsx";
+import Dashboard from "./features/UserInfo/UserInfo.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

@@ -9,7 +9,8 @@ export default defineConfig({
       name: "microReact",
       filename: "microReact.js",
       exposes: {
-        "./Dashboard": "./src/routes/Dashboard/Dashboard.tsx",
+        "./UserInfo": "./src/features/UserInfo/UserInfo.tsx",
+        "./Map": "./src/features/Map/Map.tsx",
       },
       shared: ["react", "react-dom", "@tanstack/react-query"],
     }),

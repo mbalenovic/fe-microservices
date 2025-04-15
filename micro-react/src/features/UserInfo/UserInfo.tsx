@@ -3,12 +3,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 
-function DashboardContent() {
+function UserInfoContent() {
   const { data: user } = useUserQuery();
 
   return (
     <div>
-      <h2>Dashboard (React Micro Frontend)</h2>
       {user ? (
         <p>Hello, {user.username}! Welcome to the Micro React</p>
       ) : (
@@ -18,10 +17,10 @@ function DashboardContent() {
   );
 }
 
-export default function Dashboard() {
+export default function UserInfo() {
   return (
     <QueryClientProvider client={queryClient}>
-      <DashboardContent />
+      <UserInfoContent />
     </QueryClientProvider>
   );
 }
