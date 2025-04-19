@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SolidApp from "@/features/dashboard/components/SolidApp";
 import Widget from "@/features/dashboard/components/Widget";
-import ReactApp from "@/features/dashboard/components/ReactApp";
+import ReactMap from "@/features/dashboard/components/ReactMap";
+import UserInfo from "@/features/dashboard/components/UserInfo";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
@@ -14,7 +15,10 @@ function RouteComponent() {
         <SolidApp />
       </Widget>
       <Widget title="Micro React">
-        <ReactApp />
+        <ReactMap />
+      </Widget>
+      <Widget title="Micro React">
+        <UserInfo />
       </Widget>
     </div>
   );

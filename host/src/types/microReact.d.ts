@@ -1,5 +1,10 @@
-declare module "microReact/Dashboard" {
+declare module "microReact/UserInfo" {
   import { FC } from "react";
-  const Dashboard: FC;
-  export default Dashboard;
+  const UserInfo: FC;
+  export default UserInfo;
+}
+declare module "microReact/Map" {
+  import { FC } from "react";
+  const Map: FC;
+  export default Map;
 }

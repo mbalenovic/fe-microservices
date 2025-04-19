@@ -13,7 +13,7 @@ export default defineConfig({
     tailwindcss(),
     federation({
       remotes: {
-        microReact: "http://localhost:3001/dist/assets/remoteEntry.js",
+        microReact: "http://localhost:3001/dist/assets/microReact.js",
         microSolid: "http://localhost:3002/dist/assets/microSolid.js",
       },
       shared: ["react", "react-dom", "@tanstack/react-query"],
