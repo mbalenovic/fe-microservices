@@ -3,6 +3,7 @@ import SolidApp from "@/features/dashboard/components/SolidApp";
 import Widget from "@/features/dashboard/components/Widget";
 import ReactMap from "@/features/dashboard/components/ReactMap";
 import UserInfo from "@/features/dashboard/components/UserInfo";
+import HostMap from "@/features/dashboard/components/HostMap";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
@@ -19,6 +20,9 @@ function RouteComponent() {
       </Widget>
       <Widget title="Micro React">
         <UserInfo />
+      </Widget>
+      <Widget title="Micro Host">
+        <HostMap />
       </Widget>
     </div>
   );
