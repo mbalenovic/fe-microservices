@@ -75,6 +75,12 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("Client disconnected");
   });
+
+  socket.on("map", (map) => {
+    console.log("Map event received", map);
+
+    socket.broadcast.emit("map", map);
+  });
 });
 
 io.listen(SOCKET_PORT);
